@@ -1,0 +1,70 @@
+*sheet 1
+	||you can connect this to the first question that shows people who use facebook and instagram
+	||toggle between seeing the data of this and seeing this but filtered to people who use facebook and instagram
+	-cookies allow websites to track user visits and site activity
+	-advertising is largest soruce of revenue for most social media platforms
+	-whatsapp and instagram are both owned by facebook
+	-private browsing only prevents someone using the same computer from seeing one's online identity
+		*this might not fit here
+	?SOCIALMEDIAUSE a,b,c
+	?TRACKCO1a,TrACKCO1b,CONCERNCO, BENEFITCO
+	?ANONYMOUS1CO
+	?CONCERNGRP b,d,f
+	?PP5 a,b,c,d
+	?PP6 b,c
+	?SHARE1
+	?KNOW6
+	?PUBLICDATA
+	?RTBF
+	?RTD b
+	?DATAUSE b,e
+
+*sheet 2
+	||can be used to show why the simplicity of apples approach to security is important
+	||toggle between ages, show difference between younger people and older people
+	-"https://"in a URL means that infomation entered into the site is encrypted
+		*safari uses a lock and green which is more obvious
+	-identifying two factor authentication
+		*apple id sends a big overlay message to all devices under the account
+	-use of password manager
+	?SECUR1
+	?PRIVACYREG
+	?KNOW1
+	?KNOW4
+	?KNOW8
+	?KNOW9
+	?PWMAN
+	?PWMAN2
+	?PROFILE1 PROFILE2 PROFILE3 PROFILE4
+
+*sheet 3
+	||shows how americans do not trust advertisers with facial recognition
+	||can emphasize how faceid stays on iphone
+	-just look at the piture from pew research
+	-majority of americans do not trust advertisers with facial recognition
+	- they also don't trust tech companies
+	-looks like the more intrusive in their own lives/ 1984 esc, the more it is not acceptable
+	?TRACKCO1a,TrACKCO1b,CONCERNCO, BENEFITCO
+	?CONCERNGRP b,d,f
+	?GOVREG2
+	?RTBF
+	?RTD b
+	?FACE1 ?FACE2 a,b,c
+	?FACE3 a,b FACE4 c
+*sheet 4
+	||americans don't believe they can go through life without giving up data. shows to change advertising
+	|| americans don't feel in control of the data so advertisements should show they are in control with apple
+	-majority of americans believe they can't go through life without companies collecting data on them
+	-majority of americans believe they can't go through life without government collecting data on them
+	?SECUR1
+	?PRIVACYNEWS1
+	?HOMEASSIST1,HOMEASSIST2
+	?TRACKCO1a,TrACKCO1b,CONCERNCO, BENEFITCO
+	?CONTROLCO
+	?UNDERSTANDCO
+	?POSNEGCO
+	?ANONYMOUS1CO
+	?CONCERNGRP b,d,f
+	?CONTROLGRP a,b,d,f
+	?RTBF
+	?RTD b
