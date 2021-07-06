@@ -36,15 +36,16 @@ def get_header(app):
             html.Div(
                 [
                     html.Div(
-                        [html.H5("Calibre Financial Index Fund Investor Shares")],
+                        [html.H5("U.S. Privacy Report")],
                         className="seven columns main-title",
                     ),
                     html.Div(
                         [
+                           
                             dcc.Link(
                                 "Full View",
-                                href="/dash-financial-report/full-view",
-                                className="full-view-link",
+                                href="/dash-financial-report/full-view", #CHANGE THIS
+                                className="full-view-link", #CHANGE THIS
                             )
                         ],
                         className="five columns",
@@ -64,34 +65,26 @@ def get_menu():
         [
             dcc.Link(
                 "Overview",
-                href="/dash-financial-report/overview",
-                className="tab first",
+                href="/apple-dashboard/overview",
+                className="tab first", 
             ),
             dcc.Link(
-                "Price Performance",
-                href="/dash-financial-report/price-performance",
-                className="tab",
+                "Security Overview", 
+                href="/apple-dashboard/security-overview",  
+                className="tab", 
             ),
             dcc.Link(
-                "Portfolio & Management",
-                href="/dash-financial-report/portfolio-management",
-                className="tab",
+                "Facebook", 
+                href="/apple-dashboard/facebook", 
+                className="tab", 
             ),
             dcc.Link(
-                "Fees & Minimums", href="/dash-financial-report/fees", className="tab"
-            ),
-            dcc.Link(
-                "Distributions",
-                href="/dash-financial-report/distributions",
-                className="tab",
-            ),
-            dcc.Link(
-                "News & Reviews",
-                href="/dash-financial-report/news-and-reviews",
-                className="tab",
+                "Facial Recognition", 
+                href="/apple-dashboard/facial-recognition", 
+                className="tab", 
             ),
         ],
-        className="row all-tabs",
+        className="row all-tabs", 
     )
     return menu
 

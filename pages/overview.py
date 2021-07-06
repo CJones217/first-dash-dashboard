@@ -18,7 +18,7 @@ def create_layout(app):
             Header(app),
             html.Div(
                 [
-                    html.H5("security overview"),
+                    
                 ],
                 className="sub_page",
             ),

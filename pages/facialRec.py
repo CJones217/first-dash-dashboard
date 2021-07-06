@@ -18,7 +18,7 @@ def create_layout(app):
             Header(app),
             html.Div(
                 [
-                    html.H5("security overview"),
+                    html.H5("facial recognition"),
                 ],
                 className="sub_page",
             ),

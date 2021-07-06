@@ -4,6 +4,9 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 from pages import (
     securityOverview,
+    overview,
+    facebook,
+    facialRec,
 )
 
 app = dash.Dash( #i prob don't need the tags
@@ -20,8 +23,14 @@ app.layout = html.Div(
 def display_page(pathname):
     if pathname == "/apple-dashboard/security-overview":
         return securityOverview.create_layout(app)
+    elif pathname == "/apple-dashboard/overview":
+        return overview.create_layout(app)
+    elif pathname == "/apple-dashboard/facebook":
+        return facebook.create_layout(app)
+    elif pathname == "/apple-dashboard/facial-recognition":
+        return facialRec.create_layout(app)
     else:
-        return securityOverview.create_layout(app)
+        return overview.create_layout(app)
 
 if __name__ == "__main__":
     app.run_server(debug=True)
