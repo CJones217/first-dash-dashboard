@@ -1,31 +1,27 @@
 import dash
+import dash_core_components as dcc
 import dash_html_components as html
-import pandas as pd
+from dash.dependencies import Input, Output
+from pages import (
+    securityOverview,
+)
 
-df = pd.read_csv('W49_Jun19/output.csv')
+app = dash.Dash( #i prob don't need the tags
+    __name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}],
+)
+app.title = "U.S. Citizens Outlook on Data Privacy and Security"
+server = app.server
 
+app.layout = html.Div(
+    [dcc.Location(id="url", refresh=False), html.Div(id="page-content")]
+)
 
-def generate_table(dataframe, max_rows=10):
-    return html.Table([
-        html.Thead(
-            html.Tr([html.Th(col) for col in dataframe.columns])
-        ),
-        html.Tbody([
-            html.Tr([
-                html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
-            ]) for i in range(min(len(dataframe), max_rows))
-        ])
-    ])
+@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
+def display_page(pathname):
+    if pathname == "/apple-dashboard/security-overview":
+        return securityOverview.create_layout(app)
+    else:
+        return securityOverview.create_layout(app)
 
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-
-app.layout = html.Div(children=[
-    html.H4(children='U.S. Data Privacy'),
-    generate_table(df)
-])
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run_server(debug=True)
