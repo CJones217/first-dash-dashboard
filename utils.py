@@ -39,17 +39,6 @@ def get_header(app):
                         [html.H5("U.S. Privacy Report")],
                         className="seven columns main-title",
                     ),
-                    html.Div(
-                        [
-                           
-                            dcc.Link(
-                                "Full View",
-                                href="/dash-financial-report/full-view", #CHANGE THIS
-                                className="full-view-link", #CHANGE THIS
-                            )
-                        ],
-                        className="five columns",
-                    ),
                 ],
                 className="twelve columns",
                 style={"padding-left": "0"},

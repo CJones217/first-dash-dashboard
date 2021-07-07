@@ -52,10 +52,25 @@ def create_privacyreg_graph():
     
     data = [['A Great Deal',one ],['Some',two ],['Very Little',three ],['Not at all', four]]
 
-    df2 = pd.DataFrame(data, columns=['Feeling', 'Percent of Americans'])
+    df2 = pd.DataFrame(data, columns=['Feeling', 'Americans'])
 
-    return px.pie(df2,values = 'Percent of Americans', names = 'Feeling', title = 'Knowledge of data privacy laws')
+    return px.pie(df2,values = 'Americans', names = 'Feeling', title = 'Knowledge of data privacy laws')
 
+def create_pwman_graph():
+    one =0
+    two=0
+
+    for index, row in df.iterrows():
+        if(row['PWMAN_W49']==1):
+            one+=1
+        elif(row['PWMAN_W49']==2):
+            two+=1
+    
+    data = [['yes',one],['no',two]]
+
+    df2 = pd.DataFrame(data, columns=['Answer','Americans'])
+
+    return px.pie(df2,values = 'Americans', names='Answer', title = 'Password manager use')
 
 
 
@@ -71,6 +86,9 @@ def create_layout(app):
                     ]),
                     html.Div([
                         dcc.Graph(figure=create_privacyreg_graph(), config= {'displaylogo': False}) # add ID like id='the_graph'for css
+                    ]),
+                    html.Div([
+                        dcc.Graph(figure=create_pwman_graph(), config= {'displaylogo': False}) # add ID like id='the_graph'for css
                     ]),
                 ],
                 className="sub_page",
