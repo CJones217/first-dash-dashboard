@@ -20,8 +20,27 @@ def create_questionnaire_graph():
     group_labels = label_helper(9)
 
     df2 = pd.DataFrame(data,index=group_labels)
+    df2.columns = ['right','wrong']
+    df2.index.names = ['question #']
     #might need to make a drop down to choose between each question to simplify all this
-    return px.bar(df2, barmode='group',title = 'right vs wrong answers', orientation='h')
+    return px.bar(df2, barmode='group',title = 'right vs wrong answers', orientation='h',labels={"value": "submissions","variable":" "})
+
+def create_questionnaire_table():
+    options=[
+            {'label': 'Question 1', 'value': 'What is a website cookie?'},
+            {'label': 'Question 2', 'value': 'Which is the largest source of revenue for social media companies?'},
+            {'label': 'Question 3', 'value': 'What is a privacy policy?'},
+            {'label': 'Question 4', 'value': 'What does the s in HTTPS mean?'},
+            {'label': 'Question 5', 'value': 'where will you encounter a phishing attempt'},
+            {'label': 'Question 6', 'value': 'Which two companies belong to facebook'},
+            {'label': 'Question 7', 'value': 'What is net neutrality'},
+            {'label': 'Question 8', 'value': 'What does private browsing in a web browser do?'},
+            {'label': 'Question 9', 'value': 'What is two-factor authentication?'},
+            ]
+
+    df2 = pd.DataFrame(options)
+
+    return make_dash_table(df2)
 
 def label_helper(amount):
     labels = []
@@ -61,6 +80,9 @@ def create_layout(app):
                     html.H5("10 questions"),
                     html.Div([
                         dcc.Graph(figure=create_questionnaire_graph(), config= {'displaylogo': False}) # add ID like id='the_graph'for css
+                    ]),
+                    html.Div([
+                        html.Table(create_questionnaire_table())
                     ]),
                 ],
                 className="sub_page",
