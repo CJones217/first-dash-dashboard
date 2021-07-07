@@ -7,6 +7,7 @@ from pages import (
     overview,
     facebook,
     facialRec,
+    questionnaire
 )
 
 app = dash.Dash( #i prob don't need the tags
@@ -22,6 +23,7 @@ app.layout = html.Div(
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def display_page(pathname):
     if pathname == "/apple-dashboard/security-overview":
+        #securityOverview.create_secur_graph()
         return securityOverview.create_layout(app)
     elif pathname == "/apple-dashboard/overview":
         return overview.create_layout(app)
@@ -29,6 +31,8 @@ def display_page(pathname):
         return facebook.create_layout(app)
     elif pathname == "/apple-dashboard/facial-recognition":
         return facialRec.create_layout(app)
+    elif pathname == "/apple-dashboard/questionnaire":
+        return questionnaire.create_layout(app)
     else:
         return overview.create_layout(app)
 

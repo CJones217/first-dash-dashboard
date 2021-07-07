@@ -69,6 +69,11 @@ def get_menu():
                 className="tab first", 
             ),
             dcc.Link(
+                "Questionnaire", 
+                href="/apple-dashboard/questionnaire",  
+                className="tab", 
+            ),
+            dcc.Link(
                 "Security Overview", 
                 href="/apple-dashboard/security-overview",  
                 className="tab", 
