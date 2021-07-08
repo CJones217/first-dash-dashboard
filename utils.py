@@ -72,11 +72,6 @@ def get_menu():
                 href="/apple-dashboard/facebook", 
                 className="tab", 
             ),
-            dcc.Link(
-                "Facial Recognition", 
-                href="/apple-dashboard/facial-recognition", 
-                className="tab", 
-            ),
         ],
         className="row all-tabs", 
     )

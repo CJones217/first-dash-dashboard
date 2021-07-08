@@ -81,7 +81,22 @@ def create_fb_and_concern_graph():
 
     return px.bar(df2, barmode='group',title = 'How many people use Facebook',labels={"value": "submissions","variable":" ti"})
 
+
+def create_pp5_statistic():
+    confident =0
+    not_confident =0
     
+    
+
+    for index, row in df.iterrows():
+        if(row['PP5a_W49'] == 1 or row['PP5a_W49'] == 2):
+            confident +=1
+        elif(row['PP5a_W49'] == 3 or row['PP5a_W49'] == 4):
+            not_confident +=1
+
+    final_confident = (confident / (confident+not_confident))*100
+
+    return "{} % of Americans are not confident companies will follow their own privacy policies for their data.".format(round(final_confident,1))
 
 
 
@@ -99,6 +114,9 @@ def create_layout(app):
                     ]),
                     html.Div([
                         dcc.Graph(figure=create_fb_and_concern_graph(), config= {'displaylogo': False})
+                    ]),
+                    html.Div([
+                        html.H4(create_pp5_statistic())
                     ]),
                 ],
                 className="sub_page",

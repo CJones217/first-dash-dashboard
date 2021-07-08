@@ -6,7 +6,6 @@ from pages import (
     securityOverview,
     overview,
     facebook,
-    facialRec,
     questionnaire
 )
 
@@ -35,6 +34,7 @@ def display_page(pathname):
         return questionnaire.create_layout(app)
     else:
         return overview.create_layout(app)
+
 
 if __name__ == "__main__":
     app.run_server(debug=True)
