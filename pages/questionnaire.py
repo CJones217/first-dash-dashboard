@@ -38,6 +38,8 @@ def create_questionnaire_table():
             {'label': 'Question 9', 'value': 'What is two-factor authentication?'},
             ]
 
+    options.reverse()
+
     df2 = pd.DataFrame(options)
 
     return make_dash_table(df2)
