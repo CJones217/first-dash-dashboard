@@ -28,8 +28,6 @@ def display_page(pathname):
         return overview.create_layout(app)
     elif pathname == "/apple-dashboard/facebook":
         return facebook.create_layout(app)
-    elif pathname == "/apple-dashboard/facial-recognition":
-        return facialRec.create_layout(app)
     elif pathname == "/apple-dashboard/questionnaire":
         return questionnaire.create_layout(app)
     else:
