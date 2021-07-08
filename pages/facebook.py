@@ -23,7 +23,8 @@ def create_fb_and_concern():
     no_fb =0
     no_fb_no_concern =0
     no_fb_concern =0
-    dump=0
+    dump1=0
+    dump2=0
 
     for index, row in df.iterrows():
         if(row['SOCMEDIAUSEa_W49'] == 1):
@@ -33,7 +34,7 @@ def create_fb_and_concern():
             elif(row['CONCERNCO_W49'] == 3 or row['CONCERNCO_W49'] == 4):
                 use_fb_no_concern +=1
             else:
-                dump+=1
+                dump1+=1
                 use_fb-=1
             
 
@@ -44,26 +45,23 @@ def create_fb_and_concern():
             elif(row['CONCERNCO_W49'] == 3 or row['CONCERNCO_W49'] == 4):
                 no_fb_no_concern +=1
             else:
-                dump+=1
+                dump2+=1
                 no_fb-=1
-        
-    print(dump)
 
-    return [use_fb,use_fb_concern,use_fb_no_concern,no_fb,no_fb_concern,no_fb_no_concern]
+    return [use_fb,use_fb_concern,use_fb_no_concern,no_fb,no_fb_concern,no_fb_no_concern,dump1,dump2]
 
 
 def create_fb_only_graph():
 
     pulldata = create_fb_and_concern()
-    data = [pulldata[0],pulldata[3]]
+    data = [pulldata[0]+pulldata[6],pulldata[3]+pulldata[7]]
 
-    labels = ['use facebook','don\'t use facebook']
 
-    df2 =pd.DataFrame(data, index = ['use facebook','no facebook use'])
+    df2 =pd.DataFrame(data, index = ['Use Facebook','No Facebook Use'])
     #df2.columns['use facebook','no facebook use']
     df2.index.names = [' ']
 
-    graph = px.bar(df2,title = 'How many people use Facebook',labels={"value": "submissions","variable":" ti"})
+    graph = px.bar(df2,title = 'How Many People Use Facebook',labels={"value": "Submissions","variable":" ti"})
     graph.layout.update(showlegend=False)
     graph.update_traces( hovertemplate=None)
 
@@ -74,12 +72,14 @@ def create_fb_and_concern_graph():
     pulldata = create_fb_and_concern()
     data = [[pulldata[0],pulldata[1],pulldata[2]],[pulldata[3],pulldata[4],pulldata[5]]]
 
-    df2 = pd.DataFrame(data,index = ['use facebook','no facebook use'])
-    df2.columns = ['facebook','concern','no concern']
+    df2 = pd.DataFrame(data,index = ['Use Facebook','No Facebook Use'])
+    df2.columns = ['Facebook','Concern','No Concern']
+    df2.index.names = [' ']
 
-    print(df2)
+    graph = px.bar(df2, barmode='group',title = 'Facebook Users And Their Concern For Their Private Data Usage',labels={"value": "Submissions","variable":" "})
+    graph.update_traces( hovertemplate=None)
 
-    return px.bar(df2, barmode='group',title = 'How many people use Facebook',labels={"value": "submissions","variable":" ti"})
+    return graph
 
 
 def create_pp5_statistic():
@@ -96,7 +96,7 @@ def create_pp5_statistic():
 
     final_confident = (confident / (confident+not_confident))*100
 
-    return "{} % of Americans are not confident companies will follow their own privacy policies for their data.".format(round(final_confident,1))
+    return "{}% of Americans are not confident companies will follow their own privacy policies for their data.".format(round(final_confident,1))
 
 
 
@@ -108,7 +108,7 @@ def create_layout(app):
             Header(app),
             html.Div(
                 [
-                    html.H5("Facebook"),
+                    html.H5("America\'s Concern Over Facebook"),
                     html.Div([
                         dcc.Graph(figure=create_fb_only_graph(), config= {'displaylogo': False})
                     ]),
@@ -116,7 +116,7 @@ def create_layout(app):
                         dcc.Graph(figure=create_fb_and_concern_graph(), config= {'displaylogo': False})
                     ]),
                     html.Div([
-                        html.H4(create_pp5_statistic())
+                        html.H4(create_pp5_statistic(),style={"text-align": "center","background": "#0075FF","color": "#ffffff"})
                     ]),
                 ],
                 className="sub_page",

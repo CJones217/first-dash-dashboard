@@ -13,7 +13,7 @@ def get_header(app):
                 [
                     html.A(
                         html.Img(
-                            src=app.get_asset_url("apple.png"),
+                            src=app.get_asset_url("signal.png"),
                             className="logo",
                         ),
                         href="https://collinjones.xyz",

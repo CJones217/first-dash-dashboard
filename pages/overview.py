@@ -12,7 +12,8 @@ PATH = pathlib.Path(__file__).parent
 DATA_PATH = PATH.joinpath("../data").resolve()
 
 df = pd.read_csv(DATA_PATH.joinpath('master.csv'))
-
+color1 = "#00BF16"
+color2 = "#00BF16"
 
 
 def create_privacy_statistic():
@@ -28,8 +29,12 @@ def create_privacy_statistic():
             not_confident +=1
 
     final_confident = (confident / (confident+not_confident))*100
+    if(final_confident > 50):
+        color1 = "#BF0400"
+    
+    stat = "{} % of Americans do not closely follow news about privacy issues.".format(round(final_confident,1))
 
-    return "{} % of Americans do not closely follow news about privacy issues.".format(round(final_confident,1))
+    return html.H4(stat,style={"text-align": "center","background": color1,"color": "#ffffff"})
 
 
 def create_understand_statistic():
@@ -46,7 +51,13 @@ def create_understand_statistic():
 
     final_confident = (confident / (confident+not_confident))*100
 
-    return "{} % of Americans feel they understand what companies do with the data they collect on them.".format(round(final_confident,1))
+    if(final_confident < 50):
+        color2 = "#BF0400"
+
+    stat = "{} % of Americans feel they understand what companies do with the data they collect on them.".format(round(final_confident,1))
+
+    return html.H4(stat,style={"text-align": "center","background": color2,"color": "#ffffff"})
+
 
 def create_tracking_graph():
 
@@ -72,7 +83,7 @@ def create_tracking_graph():
 
     df2 = pd.DataFrame(data, columns=['Feeling', 'Americans'])
 
-    return px.pie(df2,values = 'Americans', names = 'Feeling', title = 'How much of what you do online is being tracked by advertisers and tech companies')
+    return px.pie(df2,values = 'Americans', names = 'Feeling')
 
 
 
@@ -82,15 +93,53 @@ def create_layout(app):
             Header(app),
             html.Div(
                 [
+
+                    html.Div(
+                            [
+                                html.H5("Use Case"),
+                                html.Br([]),
+                                html.P(
+                                    "\
+                                    Signal is an end to end encrypted messaging app. \
+                                    It is open source and focuses on how safe, secure, and private the messaging is. \
+                                    The signal advertisment team has been trying to convince people that their competitors  \
+                                    violate your privacy and use your personal data without your knowledge. They can use this  \
+                                    dashboard to get better information on how much people know about internet security and privacy. \
+                                    This allows them to better tailor their advertisements to show that signal is a better app than What's App.\
+                                    Each section of the dashboard is made to give clear information without distracting the user.",
+                                        style={"color": "#ffffff"},
+                                        className="row",
+                                    ),
+                            ],
+                                className="product",
+                    ),
+
+                    html.Div(
+                            [
+                                html.H5("Dataset"),
+                                html.Br([]),
+                                html.P(
+                                    "\
+                                    The dataset was taken from pewresearch.org \"American Trends Panel Wave 49\"\
+                                    which was a survey that focused on what Americans know about internet security\
+                                    and how they feel about data privacy. It was conducted in 2019.",
+                                        style={"color": "#ffffff"},
+                                        className="row",
+                                    ),
+                            ],
+                                className="product",
+                    ),
                     
                     html.Div([
+                        html.Br([]),
+                        html.H2("How much of their online activity do Americans believe is being tracked by advertisers and tech companies?"),
                         dcc.Graph(figure=create_tracking_graph(), config= {'displaylogo': False}) # add ID like id='the_graph'for css
                     ]),
                     html.Div([
-                        html.H4(create_privacy_statistic())
+                        create_privacy_statistic()
                     ]),
                     html.Div([
-                        html.H4(create_understand_statistic())
+                        create_understand_statistic()
                     ]),
                     
                 ],

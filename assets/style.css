@@ -157,7 +157,7 @@ body {
     padding: 30px;
     margin-bottom: 25px;
     border-radius: 1px;
-    background: #98151b;
+    background: #0075FF;
     color: #ffffff;
   }
   .full-view-link {
@@ -181,7 +181,7 @@ body {
     color: #3a3a3a;
     font-size: 40px !important;
     width: 80%;
-    border-left: 20px solid #98151b;
+    border-left: 20px solid #0075FF;
     background: #ffffff;
     padding-left: 30px;
   }
@@ -308,7 +308,7 @@ body {
     .main-title {
       width: 55%;
       padding-left: 15px;
-      border-left: 15px solid #98151b;
+      border-left: 15px solid #0075FF;
     }
     .five.columns {
       width: 45%;

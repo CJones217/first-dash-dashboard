@@ -54,7 +54,7 @@ def create_privacyreg_graph():
 
     df2 = pd.DataFrame(data, columns=['Feeling', 'Americans'])
 
-    return px.pie(df2,values = 'Americans', names = 'Feeling', title = 'Knowledge of data privacy laws')
+    return px.pie(df2,values = 'Americans', names = 'Feeling', title = 'Americans Knowledge of data privacy laws')
 
 def create_pwman_graph():
     one =0
@@ -70,7 +70,7 @@ def create_pwman_graph():
 
     df2 = pd.DataFrame(data, columns=['Answer','Americans'])
 
-    return px.pie(df2,values = 'Americans', names='Answer', title = 'Password manager use')
+    return px.pie(df2,values = 'Americans', names='Answer', title = 'Password manager use by Americans')
 
 
 
@@ -80,7 +80,7 @@ def create_layout(app):
             Header(app),
             html.Div(
                 [
-                    html.H5("security overview"),
+                    html.H5("Americans Understanding of Security"),
                     html.Div([
                         dcc.Graph(figure=create_secur_graph(), config= {'displaylogo': False}) # add ID like id='the_graph'for css
                     ]),

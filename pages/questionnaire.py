@@ -20,10 +20,10 @@ def create_questionnaire_graph():
     group_labels = label_helper(9)
 
     df2 = pd.DataFrame(data,index=group_labels)
-    df2.columns = ['right','wrong']
-    df2.index.names = ['question #']
+    df2.columns = ['Right','Wrong']
+    df2.index.names = ['Question #']
     #might need to make a drop down to choose between each question to simplify all this
-    return px.bar(df2, barmode='group',title = 'right vs wrong answers', orientation='h',labels={"value": "submissions","variable":" "})
+    return px.bar(df2, barmode='group',title = 'Right vs Wrong Answers', orientation='h',labels={"value": "Submissions","variable":" "})
 
 def create_questionnaire_table():
     options=[
@@ -79,7 +79,7 @@ def create_layout(app):
             Header(app),
             html.Div(
                 [
-                    html.H5("10 questions"),
+                    html.H5("Basic Internet privacy and security knowledge"),
                     html.Div([
                         dcc.Graph(figure=create_questionnaire_graph(), config= {'displaylogo': False}) # add ID like id='the_graph'for css
                     ]),
