@@ -31,7 +31,7 @@ def create_secur_graph():
 
     df2 = pd.DataFrame(data, columns=['Feeling', 'Percent of Americans'])
 
-    return px.pie(df2,values = 'Percent of Americans', names = 'Feeling', title = 'How  do Americans feel about personal information security compared to 5 years ago?')
+    return px.pie(df2,values = 'Percent of Americans', names = 'Feeling')
 
 def create_privacyreg_graph():
 
@@ -81,6 +81,8 @@ def create_layout(app):
             html.Div(
                 [
                     html.H5("Americans Understanding of Security"),
+                    html.Br([]),
+                    html.P("How do Americans feel about personal information security compared to 5 years ago?"),
                     html.Div([
                         dcc.Graph(figure=create_secur_graph(), config= {'displaylogo': False}) # add ID like id='the_graph'for css
                     ]),
