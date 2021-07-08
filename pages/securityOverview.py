@@ -31,7 +31,7 @@ def create_secur_graph():
 
     df2 = pd.DataFrame(data, columns=['Feeling', 'Percent of Americans'])
 
-    return px.pie(df2,values = 'Percent of Americans', names = 'Feeling', title = 'How Americans feel about personal information security compared to 5 years ago')
+    return px.pie(df2,values = 'Percent of Americans', names = 'Feeling', title = 'How  do Americans feel about personal information security compared to 5 years ago?')
 
 def create_privacyreg_graph():
 
@@ -54,7 +54,7 @@ def create_privacyreg_graph():
 
     df2 = pd.DataFrame(data, columns=['Feeling', 'Americans'])
 
-    return px.pie(df2,values = 'Americans', names = 'Feeling', title = 'Americans Knowledge of data privacy laws')
+    return px.pie(df2,values = 'Americans', names = 'Feeling', title = 'Americans Knowledge of Data Privacy Laws')
 
 def create_pwman_graph():
     one =0
@@ -70,7 +70,7 @@ def create_pwman_graph():
 
     df2 = pd.DataFrame(data, columns=['Answer','Americans'])
 
-    return px.pie(df2,values = 'Americans', names='Answer', title = 'Password manager use by Americans')
+    return px.pie(df2,values = 'Americans', names='Answer', title = 'Password Manager Use by Americans')
 
 
 

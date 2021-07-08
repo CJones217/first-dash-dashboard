@@ -31,7 +31,7 @@ def create_questionnaire_table():
             {'label': 'Question 2', 'value': 'Which is the largest source of revenue for social media companies?'},
             {'label': 'Question 3', 'value': 'What is a privacy policy?'},
             {'label': 'Question 4', 'value': 'What does the s in HTTPS mean?'},
-            {'label': 'Question 5', 'value': 'where will you encounter a phishing attempt'},
+            {'label': 'Question 5', 'value': 'Where will you encounter a phishing attempt'},
             {'label': 'Question 6', 'value': 'Which two companies belong to facebook'},
             {'label': 'Question 7', 'value': 'What is net neutrality'},
             {'label': 'Question 8', 'value': 'What does private browsing in a web browser do?'},
@@ -79,7 +79,7 @@ def create_layout(app):
             Header(app),
             html.Div(
                 [
-                    html.H5("Basic Internet privacy and security knowledge"),
+                    html.H5("Basic Internet Privacy and Security Knowledge"),
                     html.Div([
                         dcc.Graph(figure=create_questionnaire_graph(), config= {'displaylogo': False}) # add ID like id='the_graph'for css
                     ]),

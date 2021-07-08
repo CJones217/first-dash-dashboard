@@ -102,8 +102,7 @@ def create_layout(app):
                                     "\
                                     Signal is an end to end encrypted messaging app. \
                                     It is open source and focuses on how safe, secure, and private the messaging is. \
-                                    The signal advertisment team has been trying to convince people that their competitors  \
-                                    violate your privacy and use your personal data without your knowledge. They can use this  \
+                                    The signal advertisment team can use this  \
                                     dashboard to get better information on how much people know about internet security and privacy. \
                                     This allows them to better tailor their advertisements to show that signal is a better app than What's App.\
                                     Each section of the dashboard is made to give clear information without distracting the user.",
